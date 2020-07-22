@@ -6,9 +6,9 @@
 </head>
 <body>
     <h1>ВЫБЕРИ ИМЯ ДЛЯ РЕБЁНКА-ЧЕМПИОНА!!!</h1>
-    <form>
+    <form action="/api/v1/dates" method="get" >
         <p>Введите дату рождения</p>
-        <input type="date" action="http://localhost:44355/api/v1/dates" method="get" />
+        <input type="date" name="date" />
         <input type="submit" value="Отправить">
     </form>
 </body>

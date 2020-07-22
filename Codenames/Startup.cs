@@ -19,6 +19,13 @@ namespace Codenames
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            app.Use(async (context, next) =>
+            {
+                Console.WriteLine(context.Request.Path.Value);
+                Console.WriteLine(string.Join(", ", context.Request.Query.Select(q => q.Key + ":" + q.Value)));
+
+                await next().ConfigureAwait(false);
+            });
             app.UseMvc();
             app.UseDefaultFiles();
             app.UseStaticFiles();
